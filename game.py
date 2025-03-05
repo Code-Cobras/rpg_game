@@ -3,36 +3,30 @@ import time, sys
 # Define the story structure using a dictionary
 story = {
     "start": {
-        "description": "\n✨ The world around you begins to twist and distort. "
-    "The ground vanishes beneath your feet, and a rush of wind pulls you into a swirling vortex of light and shadow...\n\n"
-    "A moment ago, you were in the real world. Now, you wake up in a strange, enchanted land where the sky shimmers with emerald hues "
-    "and the trees whisper in voices not their own.\n\n"
-    "A cloaked figure steps forward, their eyes glowing with an eerie light.\n"
-    "'You are not alone,' they say. 'Three of your friends have been taken—scattered across this world. If you wish to escape, "
-    "you must find them before time runs out. But beware… this land is alive, and it plays by its own rules.'\n\n"
-    "As their voice fades, you hear distant drums pounding like a heartbeat.\n\n"
-    "🎲 The game has begun... 🎲",
+        "description":
+    "🎲 The game has begun... 🎲"
+    "\n\nMake your choices wisely:",
         "choices": {
-            "path 1": "cabin",
-            "path 2": "river",
-            "path 3": "woods"
+            "the luminous path": "temple of eternal light",
+            "the molten passage": "the forgotten forge",
+            "path of whispering leaves": "the verdant ruins"
         }
     },
-    "cabin": {
+    "temple of eternal light": { #still needs editing
         "description": "You find an old cabin. The door is locked.",
         "choices": {
             "knock": "bear",
             "leave": "start"
         }
     },
-    "river": {
+    "the forgotten forge": { #still needs editing
         "description": "You arrive at a fast-flowing river. There's a bridge and a boat.",
         "choices": {
             "cross bridge": "troll",
             "take boat": "island"
         }
     },
-    "bear": {
+    "the verdant ruins": { #still needs editing
         "description": "A bear opens the door and chases you! You run back.",
         "choices": {
             "run": "start",
@@ -87,7 +81,7 @@ def play_game():
             scroll_text(f"- {choice}")
 
         # Get player input
-        action = input("\nWhat do you do? ").lower()
+        action = input("\nEnter your choice here ---> ").lower()
 
         # Move to next location if valid choice
         if action in story[location]["choices"]:
