@@ -3,7 +3,14 @@ import time, sys
 # Define the story structure using a dictionary
 story = {
     "start": {
-        "description":
+        "description": "\n✨ The world around you begins to twist and distort. "
+    "The ground vanishes beneath your feet, and a rush of wind pulls you into a swirling vortex of light and shadow...\n\n"
+    "A moment ago, you were in the real world. Now, you wake up in a strange, enchanted land where the sky shimmers with emerald hues "
+    "and the trees whisper in voices not their own.\n\n"
+    "A cloaked figure steps forward, their eyes glowing with an eerie light.\n"
+    "'You are not alone,' they say. 'Three of your friends have been taken—scattered across this world. If you wish to escape, "
+    "you must find them before time runs out. But beware… this land is alive, and it plays by its own rules.'\n\n"
+    "As their voice fades, you hear distant drums pounding like a heartbeat.\n\n"
     "🎲 The game has begun... 🎲"
     "\n\nMake your choices wisely:",
         "choices": {
