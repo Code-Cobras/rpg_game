@@ -3,45 +3,40 @@ import time, sys
 # Define the story structure using a dictionary
 story = {
     "start": {
-        "description": "\n✨ The world around you begins to twist and distort.\n "
-    "The ground vanishes beneath your feet, and a rush of wind pulls\n you into a swirling vortex of light and shadow...\n\n"
-    "A moment ago, you were in the real world. Now, you wake up in a strange,\n enchanted land where the sky shimmers with emerald hues\n "
-    "and the trees whisper in voices not their own.\n\n"
-    "A cloaked figure steps forward, their eyes glowing with an eerie light.\n"
-    "'You are not alone,' they say. 'Three of your friends have been\n taken—scattered across this world in new avatars. If you wish to escape,\n "
-    "you must find them before time runs out. But beware… this land is alive,\n and it plays by its own rules.'\n\n"
-    "As their voice fades, you hear distant drums pounding like a heartbeat.\n\n"
+        "description": 
     "🎲 The game has begun... 🎲"
     "\n\nMake your choices wisely:",
         "choices": {
             "the luminous path": "temple of eternal light",
             "the molten passage": "the forgotten forge",
-            "path of whispering leaves": "the verdant ruins"
+            "path of whispering leaves": "the verdant ruins",
+            "test":"boss 1"
         }
     },
     "temple of eternal light": { #still needs editing
-        "description": "You find an old cabin. The door is locked.",
+        "description": "The Temple of Eternal Light stands as a towering monument of shimmering stone,\n\n its walls etched with celestial runes that glow with an otherworldly brilliance.\n\n At its heart, an arched doorway bathed in golden radiance beckons you forward—the Radiant Hall lies beyond,\n\n its secrets waiting to be unveiled.",
         "choices": {
-           "enter hall" : "radiant hall",
-           "return to start" : "start"
+           "enter hall":"radiant hall",
+           "return to start":"start"
         }
     },
-    "radiant": {
-        "description" : "",
+    "radiant hall": {
+        "description" : "You enter A vast, shimmering hall lit by eternal lights that\n\n reflect off polished stone floors. The air is warm, and the atmosphere is calm,\n\n though there’s a sense of ancient power that lurks beneath the beauty.",
+        ""
+        "choices": {
+            "follow beautiful fragrance" : "the eternal garden",
+            "follow the sound of a familiar voice" : "the eternal garden"
+        }
+    },
+        "the luminescesnt cavern": {
+        "description" : "the luminescesnt cavern",
         "choices": {
             "" : "",
             "" : ""
         }
     },
-        "location": {
-        "description" : "",
-        "choices": {
-            "" : "",
-            "" : ""
-        }
-    },
-        "location": {
-        "description" : "",
+        "the eternal garden": {
+        "description" : "the eternal garden",
         "choices": {
             "" : "",
             "" : ""
@@ -103,7 +98,49 @@ story = {
             "" : ""
         }
     },
+    "boss 1": {
+        "name": "Shade of the Forgotten King",
+        "description": "A dark, shadowy figure from an ancient time, twisted by the corruptive forces of the temple. Its power is tied to the absence of light.",
+        "abilities": {
+            "Shadow Strikes",
+            "Summoning Dark Minions",
+            "Teleportation"
+        },
+        "weakness": "Vulnerable to light-based magic",
+        "special_ability": {
+            "name": "Light-based Magic",
+            "trigger": "Boss health below 25%",
+            "description": "Elira can use her light-based magic to significantly weaken the Shade."
+        },
+        "responses": {
+            "hit": "You landed an exact hit, dealing {damage} damage to the Shade.",
+            "boss_hit": "The Shade attacks back, dealing {damage} damage to you."
+        }
+    },
+    "temple of eternal light item shop": {
+        "description":"",
+        "choices": {
+            "" : "the luminescent cavern",
+            "" : "the eternal garden"
+        }
+    },
+    "the forgotten forge item shop": {
+        "description":"",
+        "choices": {
+            "" : "the luminescent cavern",
+            "" : "the eternal garden"
+        }
+    },
+    "the verdant ruins item shop": {
+        "description":"",
+        "choices": {
+            "" : "the luminescent cavern",
+            "" : "the eternal garden"
+        }
+    },
+
 }
+
 
 def scroll_text(text, delay=0.05):
     for char in text:
@@ -139,5 +176,7 @@ def play_game():
 
         time.sleep(1)  # Adds a small delay for effect
 
+
 # Start the game
 play_game()
+
