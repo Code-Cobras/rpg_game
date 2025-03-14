@@ -1,4 +1,5 @@
 import time, sys
+import random
 
 # Define the story structure using a dictionary
 story = {
@@ -9,7 +10,8 @@ story = {
             "the molten passage": "the forgotten forge",
             "path of whispering leaves": "the verdant ruins",
             "fight boss": "boss 1",
-            "item shop": "temple of eternal light item shop"
+            "item shop": "temple of eternal light item shop",
+            "rps": "rusted chamber"
         }
     },
     "temple of eternal light": {
@@ -57,21 +59,47 @@ story = {
             "penalty": 25
         }
     },
-    "the luminescesnt cavern": {
-        "description": "the luminescesnt cavern",
+    "the forgotten forge": {
+        "description": "You enter a scorching-hot tunnel, the obsidian walls radiate such heat that the very air ripples around you. Small spurts of lava leak from the cracks in the wall onto the brimstone floor. At the end of the tunnel lies an empty minecart sitting on a track.",
         "choices": {
-            "item shop": "temple of eternal light item shop",
-            "eternal garden": "the eternal garden"
+            "take the minecart": "rusted chamber",
+            "return to start": "start"
+        },
+    },
+    "rusted chamber": {
+        "description": """ You choose to take the minecart.
+        You seat yourself inside the cart and pull the lever beside the track; You are taken on a wild ride. The track follows a narrow, spiralling path downwards deep into the earth. The speed you are travelling at is not what you had originally anticipated.
+        After what feels like an eternity, the track comes to end, ending abruptly right in front of a "dead end" sign. The adrenaline rush that minecart ride just gave you makes you feel uneasy about what you have just gotten yourself into.
+        Behind the sign lies a golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, rusted-over door. 
+        "Halt! He exclaims.
+        "You must play a game with me in order to see my boss". 
+        "It's simple. rock, paper, scissors, you know how to play".
+        """,
+        "choices": {},
+        "minigame": {
+            "win": "boss 2",
+            "loss": "start",
+            "penalty": 100 * (1 / 3)
         }
     },
-    "the eternal garden": {
-        "description": "the eternal garden",
-        "choices": {
-            "item shop": "temple of eternal light item shop",
-            "start": "start"
+    "boss 2": {
+        "description": """ The golem shakes its head, defeated. 
+        "Well, you won. So I'll move". 
+        He slowly shambles over to the corner, defeated.
+        You open the rusted-over door and find an even larger golem, its voice shakes the earth underneath you.
+        "WHO DARES CHALLENGE ME? IT IS I, THE FORGE GUARDIAN".
+        "YOU DARE ENTER MY DOMAIN? YOU WILL PAY". 
+        """,
+        "choices": {},
+        "boss": {
+            "name": "The Forge Guardian",
+            "description": """ A Golem made with an outer shell composed of obsidian while its inner core contains hot lava, a flaming skull appears right above its torso, possessing the body. """,
+            "abilities": ["Slag Iron Steel Smash", "Call of the Fire Spirits", "Forge Shield"],
+            "health": 100
         }
-    },
+    }
 }
+
 
 # Player attributes
 player = {"health": 100, "coins": 2000}
@@ -156,35 +184,49 @@ def play_game():
     while True:
         if location in story:
             scroll_text("\n" + story[location]["description"])
+            
+            # Handle boss fights, riddles, or minigames
             if "boss" in story[location]:
                 location = boss_fight(location)
                 continue
-            
+
             if "riddle" in story[location]:
                 location = solve_riddle(location)
                 continue
-            
+
+            if "minigame" in story[location]:
+                location = rock_paper_scissors(location)
+                continue
+
             if "shop" in story[location]:
                 location = item_shop(location)
                 continue
-            
-            if not story[location]["choices"]:
-                scroll_text("Game Over!")
-                break
-            
-            scroll_text("\nWhat path will you choose?:")
-            for choice in story[location]["choices"]:
-                scroll_text(f"- {choice}")
 
-            action = input("\nEnter your choice here ---> ").lower()
-            
-            if action in story[location]["choices"]:
-                location = story[location]["choices"][action]
+            # Check if "choices" exist before accessing them
+            if "choices" in story[location]:
+                if not story[location]["choices"]:
+                    scroll_text("Game Over!")
+                    break
+                
+                # If choices are available, let the player make a decision
+                scroll_text("\nWhat path will you choose?:")
+                for choice in story[location]["choices"]:
+                    scroll_text(f"- {choice}")
+
+                action = input("\nEnter your choice here ---> ").lower()
+
+                if action in story[location]["choices"]:
+                    location = story[location]["choices"][action]
+                else:
+                    scroll_text("\nInvalid choice, try again.")
             else:
-                scroll_text("\nInvalid choice, try again.")
+                # If no choices are available, assume the game is over
+                scroll_text("No further choices available. Game Over!")
+                break
+
         else:
             break
-        
+
         time.sleep(1)
 
 def scroll_text(text, delay=0.05):
@@ -194,4 +236,54 @@ def scroll_text(text, delay=0.05):
         time.sleep(delay)
     print()
 
+import random
+
+def rock_paper_scissors(location):
+    rps = story[location]["minigame"]
+    options = ["rock", "paper", "scissors"]
+    
+    while True:
+        # Ask the player to choose their move
+        scroll_text("Choose your move:")
+        for option in options:
+            scroll_text(f"- {option}")
+        
+        player_choice = input("Enter your choice here ---> ").lower()
+        
+        if player_choice not in options:
+            scroll_text("Invalid move, try again.")
+            continue
+        
+        # Enemy chooses a random option
+        enemy_choice = random.choice(options)
+        scroll_text(f"You chose {player_choice}. The opponent chose {enemy_choice}.")
+        
+        # Check the result of the game
+        if player_choice == enemy_choice:
+            scroll_text("It's a tie! Try again.")
+        elif (player_choice == "rock" and enemy_choice == "paper") or \
+             (player_choice == "paper" and enemy_choice == "scissors") or \
+             (player_choice == "scissors" and enemy_choice == "rock"):
+            # Player loses, subtract health
+            scroll_text(f"You lose! {enemy_choice} beats {player_choice}!")
+            player["health"] -= rps["penalty"]
+
+            # Ensure health doesn't show a small floating-point value
+            if player["health"] < 1:
+                player["health"] = 0  # Set health to exactly 0
+                scroll_text("Game over! You lost.")
+                player["health"] = 100  # Reset health for the next round
+                return "start"  # Return to start if health is zero
+            
+            scroll_text(f"You lost {rps['penalty']} HP! Your HP is now {player['health']}")
+        else:
+            # Player wins, move to the next area
+            scroll_text(f"You win! {player_choice} beats {enemy_choice}.")
+            win_location = rps.get("win")  # Use .get() to safely access win location
+            if win_location:
+                return win_location  # Proceed to the next location after winning
+            else:
+                scroll_text("Error: No valid location found after win. Returning to start.")
+                return "start"
 play_game()
+
