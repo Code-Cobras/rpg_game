@@ -21,7 +21,11 @@ story = {
     },
     "boss 1": {
         "description": "You enter a shadowy arena, facing the Shade of the Forgotten King!",
-        "choices": {},
+        "choices": {
+            "the luminous path": "temple of eternal light",
+            "the molten passage": "the forgotten forge",
+            "path of whispering leaves": "the verdant ruins",
+        },
         "boss": {
             "name": "Shade of the Forgotten King",
             "description": "A dark, shadowy figure from an ancient time, twisted by the corruptive forces of the temple.\n\nIts power is tied to the absence of light.",
