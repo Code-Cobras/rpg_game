@@ -11,7 +11,7 @@ story = {
             "path of whispering leaves": "the verdant ruins",
             "fight boss": "boss 1",
             "item shop": "temple of eternal light item shop",
-            "rps": "rusted chamber"
+            "rps": "the furnace core"
         }
     },
     "temple of eternal light": {
