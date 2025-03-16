@@ -58,15 +58,59 @@ story = {
     "the forgotten forge": {
         "description": "You enter a scorching-hot tunnel, the obsidian walls radiate such heat that the very air ripples around you. Small spurts of lava leak from the cracks in the wall onto the brimstone floor. At the end of the tunnel lies an empty minecart sitting on a track.",
         "choices": {
-            "take the minecart": "rusted chamber",
+            "take the minecart": "the smelting pits",
             "return to start": "start"
         },
     },
-    "rusted chamber": {
-        "description": """ You choose to take the minecart.
-        You seat yourself inside the cart and pull the lever beside the track; You are taken on a wild ride. The track follows a narrow, spiralling path downwards deep into the earth. The speed you are travelling at is not what you had originally anticipated.
-        After what feels like an eternity, the track comes to end, ending abruptly right in front of a "dead end" sign. The adrenaline rush that minecart ride just gave you makes you feel uneasy about what you have just gotten yourself into.
-        Behind the sign lies a golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, rusted-over door. 
+    "the smelting pits": {
+        "description": """
+            You seat yourself inside the cart and pull the lever beside the track; You are taken on a wild ride. The track follows a narrow, spiralling path downwards deep into the earth. The speed you are travelling at is not what you had originally anticipated.
+            After what feels like an eternity, the track comes to end, ending abruptly right in front of a "dead end" sign. 
+            You find yourself in the midst of an active underground metalworking and smelting facility. Dwarves with skin made of stone wheel carts full of ingots of varying metals.
+            From gold, to bronze, to iron, to nickel, to cobalt. These industrious people work their tail off producing these alloys.
+            A dwarf with very nerdy glasses and a button-up shirt approaches you and questions you:
+            "Hey! You are not a dwarf, nor do you seem like you work here!"
+            If you are truly a member of our staff, answer me this.
+            What is the name of our boss? You know, our Director of Smelting himself?
+        """,
+        "choices": {
+            "move on to the next part of the story": "the rusted chamber",
+            "return to start": "start"
+        },
+        "riddle": {
+            "question": """What is the name of the dwarven smelters' boss?""",
+            "options": ["john anvil", "smeltmiser", "the forge guardian", "grimthar steelfather"],
+            "correct": "the forge guardian",
+            "penalty": 25
+        }
+    },
+    "the rusted chamber": {
+        "description": """
+            "Hmm...", the dwarf ponders quizzically,
+            "That is indeed correct, however I need more proof of identification"
+            "Please, follow me."
+            The dwarf guides you through all the hussle and bussle of the main factory floor, he takes you to a rusty old mineshaft elevator and pressed a button. Suddenly it plunges deep within the earth, at an immense speed, just like the minecart.
+            When you feel like you are just about to hurl, it stops suddenly. The dwarf guides you into his office. You sit down in a wooden chair right in front of his desk, seemingly very calm even after the death-defying ride you two just went on.
+            "Now...", he says as he pushes up his glasses,
+            "I have a record of every non-dwarf worker in this facility, and I can easily verify your identity this way, so please... Tell me your name"
+            You panic internally, as you know for a fact your name is not in their records at all, but you keep your cool and say...
+        """,
+        "choices": {
+            "take the elevator to plunge even deeper into the earth": "the furnace core",
+            "return to start": "start"
+        },
+        "riddle": {
+            "question": "what is your name?",
+            "options": ["lillia everbloom", "titania bloodseeker", "mira la blanc", "lucy emberheart"],
+            "correct": "lucy emberheart",
+            "pentalty": 25
+        }
+
+    },
+
+    "the furnace core": {
+        "description": """ You take the elevator. Once again it dives deep into the earth, almost feeling impossible that the earth is THIS deep. You almost hurl again once more, you keep it in.
+        You find yourself in a room facing a golem golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, ominous door.
         "Halt! He exclaims.
         "You must play a game with me in order to see my boss". 
         "It's simple. rock, paper, scissors, you know how to play".
@@ -84,7 +128,8 @@ story = {
         He slowly shambles over to the corner, defeated.
         You open the rusted-over door and find an even larger golem, its voice shakes the earth underneath you.
         "WHO DARES CHALLENGE ME? IT IS I, THE FORGE GUARDIAN".
-        "YOU DARE ENTER MY DOMAIN? YOU WILL PAY". 
+        "OVERSEER OF THIS FACILITY, THE HEAD HONCHO HIMSELF. I HOLD THE HEAT OF A THOUSAND SUNS IN MY VERY HANDS. THINK YOU CAN TAKE ME ON?"
+        "TRY IT AND BE DEFEATED!"
         """,
         "choices": {},
         "boss": {
