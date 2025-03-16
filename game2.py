@@ -96,7 +96,7 @@ story = {
             You panic internally, as you know for a fact your name is not in their records at all, but you keep your cool and say...
         """,
         "choices": {
-            "take the elevator to plunge even deeper into the earth": "the furnace core",
+            "continue on with the story": "the furnace core",
             "return to start": "start"
         },
         "riddle": {
@@ -109,7 +109,11 @@ story = {
     },
 
     "the furnace core": {
-        "description": """ You take the elevator. Once again it dives deep into the earth, almost feeling impossible that the earth is THIS deep. You almost hurl again once more, you keep it in.
+        "description": """ 
+        "Hmm, yeah you check out, you are indeed Lucy Emberheart". says the dwarf.
+        "You are dismissed, get back to work!"
+        You take the elevator but instead of going back up you decide to go even deeper into the earth. 
+        Once again it dives into the earth, almost feeling impossible that the earth is THIS deep. You almost hurl again once more, you keep it in.
         You find yourself in a room facing a golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, ominous door.
         "Halt! He exclaims.
         "You must play a game with me in order to see my boss". 
