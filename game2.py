@@ -110,7 +110,7 @@ story = {
 
     "the furnace core": {
         "description": """ You take the elevator. Once again it dives deep into the earth, almost feeling impossible that the earth is THIS deep. You almost hurl again once more, you keep it in.
-        You find yourself in a room facing a golem golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, ominous door.
+        You find yourself in a room facing a golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, ominous door.
         "Halt! He exclaims.
         "You must play a game with me in order to see my boss". 
         "It's simple. rock, paper, scissors, you know how to play".
