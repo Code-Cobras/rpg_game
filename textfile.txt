@@ -1,0 +1,5 @@
+# Test ACP functions
+
+A - add(git add .)
+C - Commit (git commit -n "message here')
+P - Push (git push origin morgan branch1)
