@@ -59,6 +59,18 @@ story = {
             "penalty": 25
         }
     },
+    "the eternal garden": {
+        "description": "A mystical garden where flowers bloom under the light of a perpetual sun. Time flows differently here, and the player must deal with time loops that can either help or hinder their progress.",
+        "choices":{
+            
+        }
+    },
+    "the luminescesnt cavern":{
+        "description": "A glowing cave filled with creatures and shimmering crystals. It's peaceful yet haunted by whispers of forgotten spirits.",
+        "choices":{
+
+        }
+    },
     "the forgotten forge": {
         "description": "You enter a scorching-hot tunnel, the obsidian walls radiate such heat that the very air ripples around you. Small spurts of lava leak from the cracks in the wall onto the brimstone floor. At the end of the tunnel lies an empty minecart sitting on a track.",
         "choices": {
