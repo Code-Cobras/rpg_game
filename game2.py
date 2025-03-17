@@ -11,7 +11,7 @@ story = {
             "path of whispering leaves": "the verdant ruins",
             "fight boss": "boss 1",
             "item shop": "temple of eternal light item shop",
-            "rps": "rusted chamber"
+            "rps": "the furnace core"
         }
     },
     "temple of eternal light": {
@@ -59,18 +59,91 @@ story = {
             "penalty": 25
         }
     },
+    "the eternal garden": {
+        "description": "A mystical garden where flowers bloom under the light of a perpetual sun. Time flows differently here, and the player must deal with time loops that can either help or hinder their progress.",
+        "choices": {
+            "return to the eternal garden": "the eternal garden",
+            "follow the echo of a familiar voice": "castle of the doomed",
+        },
+    },
+    "the luminescent cavern": {
+        "description": "A glowing cave filled with creatures and shimmering crystals. It's peaceful yet haunted by whispers of forgotten spirits.",
+        "choices": {
+            "return to the luminescent cavern": "the luminescent cavern",
+            "follow the echo of a familiar voice": "castle of the doomed",
+    "castle of the doomed": {
+        "description": "You enter a shadowy arena, facing the Shade of the Forgotten King!",
+        "choices": {
+            "the molten passage": "the forgotten forge",
+            "path of whispering leaves": "the verdant ruins",
+        },
+        "boss": {
+            "name": "Shade of the Forgotten King",
+            "description": "A dark, shadowy figure from an ancient time, twisted by the corruptive forces of the temple.\n\nIts power is tied to the absence of light.",
+            "abilities": ["Shadow Strikes", "Summoning Dark Minions", "Teleportation"],
+            "health": 100
+        }
+    },
     "the forgotten forge": {
         "description": "You enter a scorching-hot tunnel, the obsidian walls radiate such heat that the very air ripples around you. Small spurts of lava leak from the cracks in the wall onto the brimstone floor. At the end of the tunnel lies an empty minecart sitting on a track.",
         "choices": {
-            "take the minecart": "rusted chamber",
+            "take the minecart": "the smelting pits",
+            "return to start": "start"
+        }
+    },
+    "the smelting pits": {
+        "description": """
+            You seat yourself inside the cart and pull the lever beside the track; You are taken on a wild ride. The track follows a narrow, spiralling path downwards deep into the earth. The speed you are travelling at is not what you had originally anticipated.
+            After what feels like an eternity, the track comes to end, ending abruptly right in front of a "dead end" sign. 
+            You find yourself in the midst of an active underground metalworking and smelting facility. Dwarves with skin made of stone wheel carts full of ingots of varying metals.
+            From gold, to bronze, to iron, to nickel, to cobalt. These industrious people work their tail off producing these alloys.
+            A dwarf with very nerdy glasses and a button-up shirt approaches you and questions you:
+            "Hey! You are not a dwarf, nor do you seem like you work here!"
+            If you are truly a member of our staff, answer me this.
+            What is the name of our boss? You know, our Director of Smelting himself?
+        """,
+        "choices": {
+            "move on to the next part of the story": "the rusted chamber",
             "return to start": "start"
         },
+        "riddle": {
+            "question": """What is the name of the dwarven smelters' boss?""",
+            "options": ["john anvil", "smeltmiser", "the forge guardian", "grimthar steelfather"],
+            "correct": "the forge guardian",
+            "penalty": 25
+        }
     },
-    "rusted chamber": {
-        "description": """ You choose to take the minecart.
-        You seat yourself inside the cart and pull the lever beside the track; You are taken on a wild ride. The track follows a narrow, spiralling path downwards deep into the earth. The speed you are travelling at is not what you had originally anticipated.
-        After what feels like an eternity, the track comes to end, ending abruptly right in front of a "dead end" sign. The adrenaline rush that minecart ride just gave you makes you feel uneasy about what you have just gotten yourself into.
-        Behind the sign lies a golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, rusted-over door. 
+    "the rusted chamber": {
+        "description": """
+            "Hmm...", the dwarf ponders quizzically,
+            "That is indeed correct, however I need more proof of identification"
+            "Please, follow me."
+            The dwarf guides you through all the hussle and bussle of the main factory floor, he takes you to a rusty old mineshaft elevator and pressed a button. Suddenly it plunges deep within the earth, at an immense speed, just like the minecart.
+            When you feel like you are just about to hurl, it stops suddenly. The dwarf guides you into his office. You sit down in a wooden chair right in front of his desk, seemingly very calm even after the death-defying ride you two just went on.
+            "Now...", he says as he pushes up his glasses,
+            "I have a record of every non-dwarf worker in this facility, and I can easily verify your identity this way, so please... Tell me your name"
+            You panic internally, as you know for a fact your name is not in their records at all, but you keep your cool and say...
+        """,
+        "choices": {
+            "continue on with the story": "the furnace core",
+            "return to start": "start"
+        },
+        "riddle": {
+            "question": "what is your name?",
+            "options": ["lillia everbloom", "titania bloodseeker", "mira la blanc", "lucy emberheart"],
+            "correct": "lucy emberheart",
+            "pentalty": 25
+        }
+
+    },
+
+    "the furnace core": {
+        "description": """ 
+        "Hmm, yeah you check out, you are indeed Lucy Emberheart". says the dwarf.
+        "You are dismissed, get back to work!"
+        You take the elevator but instead of going back up you decide to go even deeper into the earth. 
+        Once again it dives into the earth, almost feeling impossible that the earth is THIS deep. You almost hurl again once more, you keep it in.
+        You find yourself in a room facing a golem made of obsidian and lava with a flaming skull for a head. He is guarding a large, ominous door.
         "Halt! He exclaims.
         "You must play a game with me in order to see my boss". 
         "It's simple. rock, paper, scissors, you know how to play".
@@ -88,7 +161,8 @@ story = {
         He slowly shambles over to the corner, defeated.
         You open the rusted-over door and find an even larger golem, its voice shakes the earth underneath you.
         "WHO DARES CHALLENGE ME? IT IS I, THE FORGE GUARDIAN".
-        "YOU DARE ENTER MY DOMAIN? YOU WILL PAY". 
+        "OVERSEER OF THIS FACILITY, THE HEAD HONCHO HIMSELF. I HOLD THE HEAT OF A THOUSAND SUNS IN MY VERY HANDS. THINK YOU CAN TAKE ME ON?"
+        "TRY IT AND BE DEFEATED!"
         """,
         "choices": {},
         "boss": {
@@ -96,6 +170,80 @@ story = {
             "description": """ A Golem made with an outer shell composed of obsidian while its inner core contains hot lava, a flaming skull appears right above its torso, possessing the body. """,
             "abilities": ["Slag Iron Steel Smash", "Call of the Fire Spirits", "Forge Shield"],
             "health": 100
+        }
+    },
+    "the verdant ruins": {
+    "description": "Once a grand garden, now abandoned and overtaken by nature. Vines crawl along cracked stone walls, and strange creatures can be seen dashing between the trees.",
+    "choices": {
+        "enter the overgrown courtyard": "the overgrown courtyard",
+        "return to start": "start",
+        }
+    },
+    "boss 3": {
+        "description": "You enter a castle, facing the Corrupted Beast of the Ruins! A massive, twisted creature once a protector of the forest, now corrupted by dark magic. It has the ability to summon storms and manipulate the plants around it.",
+        "choices": {
+            "the luminous path": "temple of eternal light",
+            "the molten passage": "the forgotten forge",
+            "path of whispering leaves": "the verdant ruins",
+        },
+        "boss": {
+            "name": "The Corrupted Beast of the Ruins",
+            "description": "A massive, twisted creature that was once a protector of the forest. Now, it is corrupted by dark magic. It summons storms and controls the plants around it, making it a dangerous foe.",
+            "abilities": ["Summons poisonous vines", "Creates thunderstorms", "Commands creatures of the forest"],
+            "health": 100,
+            "weakness": "Vulnerable to fire and light-based attacks. Larken can help control nature to turn the tide of battle."
+        }
+    },
+    "the verdant ruins item shop": {
+        "description": "Welcome to the Verdant Ruins Item Shop! Here's what you can buy:",
+        "choices": {
+            "buy feathered bow of wilds": "the verdant ruins",
+            "buy vine whip": "the verdant ruins",
+            "buy mossy cloak": "the verdant ruins"
+        },
+        "shop": {
+            "weapons": {"feathered bow of wilds": 650, "vine whip": 250},
+            "armor": {"mossy cloak": 100}
+        }
+    },
+    "the overgrown courtyard": {
+        "description": "You step into the overgrown courtyard. Once a grand garden, now overtaken by nature. Vines crawl along cracked stone walls, and strange creatures flit between the trees.",
+        "choices": {
+            "item shop": "the verdant ruins item shop",
+            "return to overgrown courtyard": "the overgrown courtyard"
+        },
+        "riddle": {
+        "question": "A voice whispers: 'What is always in front of you but can't be seen?'",
+        "choices": {},
+        "riddle": {
+            "question": "What is always in front of you but can't be seen?",
+            "options": ["the future", "the past", "the present", "a shadow"],
+            "correct": "the future",
+            "penalty": 25
+        }
+    },
+    "the twisted thicket": {
+        "description": "A dense forest filled with dangerous creatures and magical plants that can either help or hinder you. Some paths are deceptive.",
+        "choices": {
+            "cross a long wooden bridge": "the ancient tree of life",
+            "return to start": "start"
+        }
+    },
+    "the ancient tree of life": {
+        "description": "A massive, ancient tree at the center of the ruins, its roots stretch deep into the earth. The tree is a source of powerful magic, but it is dying and needs restoration.",
+        "choices": {
+            "speak with larken": "speak with larken",
+            "return to the verdant ruins": "the verdant ruins"
+        }
+    },
+    "larken": {
+        "description": "Larken is a mysterious ranger who has lived among the ruins for as long as anyone can remember. She has a deep connection to the natural world and is skilled in archery and elemental magic.",
+        "abilities": {
+            "communicate with nature": "Allows Larken to speak with animals and plants, using them to gain information or aid the player.",
+            "summon creatures": "Larken can call upon forest creatures to assist in combat.",
+            "wind and plant magic": "Larken controls the forces of wind and plant magic, enhancing the player's attacks or slowing down enemies."
+        },
+        "role": "Larken will guide the player and assist in the fight against Boss #3 using her knowledge of the wild and her ability to control nature."
         }
     }
 }
@@ -286,4 +434,3 @@ def rock_paper_scissors(location):
                 scroll_text("Error: No valid location found after win. Returning to start.")
                 return "start"
 play_game()
-
