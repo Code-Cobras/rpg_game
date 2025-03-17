@@ -61,14 +61,27 @@ story = {
     },
     "the eternal garden": {
         "description": "A mystical garden where flowers bloom under the light of a perpetual sun. Time flows differently here, and the player must deal with time loops that can either help or hinder their progress.",
-        "choices":{
-            
-        }
+        "choices": {
+            "return to the eternal garden": "the eternal garden",
+            "follow the echo of a familiar voice": "castle of the doomed",
+        },
     },
-    "the luminescesnt cavern":{
+    "the luminescent cavern": {
         "description": "A glowing cave filled with creatures and shimmering crystals. It's peaceful yet haunted by whispers of forgotten spirits.",
-        "choices":{
-
+        "choices": {
+            "return to the luminescent cavern": "the luminescent cavern",
+            "follow the echo of a familiar voice": "castle of the doomed",
+    "castle of the doomed": {
+        "description": "You enter a shadowy arena, facing the Shade of the Forgotten King!",
+        "choices": {
+            "the molten passage": "the forgotten forge",
+            "path of whispering leaves": "the verdant ruins",
+        },
+        "boss": {
+            "name": "Shade of the Forgotten King",
+            "description": "A dark, shadowy figure from an ancient time, twisted by the corruptive forces of the temple.\n\nIts power is tied to the absence of light.",
+            "abilities": ["Shadow Strikes", "Summoning Dark Minions", "Teleportation"],
+            "health": 100
         }
     },
     "the forgotten forge": {
@@ -76,7 +89,7 @@ story = {
         "choices": {
             "take the minecart": "the smelting pits",
             "return to start": "start"
-        },
+        }
     },
     "the smelting pits": {
         "description": """
@@ -157,6 +170,80 @@ story = {
             "description": """ A Golem made with an outer shell composed of obsidian while its inner core contains hot lava, a flaming skull appears right above its torso, possessing the body. """,
             "abilities": ["Slag Iron Steel Smash", "Call of the Fire Spirits", "Forge Shield"],
             "health": 100
+        }
+    },
+    "the verdant ruins": {
+    "description": "Once a grand garden, now abandoned and overtaken by nature. Vines crawl along cracked stone walls, and strange creatures can be seen dashing between the trees.",
+    "choices": {
+        "enter the overgrown courtyard": "the overgrown courtyard",
+        "return to start": "start",
+        }
+    },
+    "boss 3": {
+        "description": "You enter a castle, facing the Corrupted Beast of the Ruins! A massive, twisted creature once a protector of the forest, now corrupted by dark magic. It has the ability to summon storms and manipulate the plants around it.",
+        "choices": {
+            "the luminous path": "temple of eternal light",
+            "the molten passage": "the forgotten forge",
+            "path of whispering leaves": "the verdant ruins",
+        },
+        "boss": {
+            "name": "The Corrupted Beast of the Ruins",
+            "description": "A massive, twisted creature that was once a protector of the forest. Now, it is corrupted by dark magic. It summons storms and controls the plants around it, making it a dangerous foe.",
+            "abilities": ["Summons poisonous vines", "Creates thunderstorms", "Commands creatures of the forest"],
+            "health": 100,
+            "weakness": "Vulnerable to fire and light-based attacks. Larken can help control nature to turn the tide of battle."
+        }
+    },
+    "the verdant ruins item shop": {
+        "description": "Welcome to the Verdant Ruins Item Shop! Here's what you can buy:",
+        "choices": {
+            "buy feathered bow of wilds": "the verdant ruins",
+            "buy vine whip": "the verdant ruins",
+            "buy mossy cloak": "the verdant ruins"
+        },
+        "shop": {
+            "weapons": {"feathered bow of wilds": 650, "vine whip": 250},
+            "armor": {"mossy cloak": 100}
+        }
+    },
+    "the overgrown courtyard": {
+        "description": "You step into the overgrown courtyard. Once a grand garden, now overtaken by nature. Vines crawl along cracked stone walls, and strange creatures flit between the trees.",
+        "choices": {
+            "item shop": "the verdant ruins item shop",
+            "return to overgrown courtyard": "the overgrown courtyard"
+        },
+        "riddle": {
+        "question": "A voice whispers: 'What is always in front of you but can't be seen?'",
+        "choices": {},
+        "riddle": {
+            "question": "What is always in front of you but can't be seen?",
+            "options": ["the future", "the past", "the present", "a shadow"],
+            "correct": "the future",
+            "penalty": 25
+        }
+    },
+    "the twisted thicket": {
+        "description": "A dense forest filled with dangerous creatures and magical plants that can either help or hinder you. Some paths are deceptive.",
+        "choices": {
+            "cross a long wooden bridge": "the ancient tree of life",
+            "return to start": "start"
+        }
+    },
+    "the ancient tree of life": {
+        "description": "A massive, ancient tree at the center of the ruins, its roots stretch deep into the earth. The tree is a source of powerful magic, but it is dying and needs restoration.",
+        "choices": {
+            "speak with larken": "speak with larken",
+            "return to the verdant ruins": "the verdant ruins"
+        }
+    },
+    "larken": {
+        "description": "Larken is a mysterious ranger who has lived among the ruins for as long as anyone can remember. She has a deep connection to the natural world and is skilled in archery and elemental magic.",
+        "abilities": {
+            "communicate with nature": "Allows Larken to speak with animals and plants, using them to gain information or aid the player.",
+            "summon creatures": "Larken can call upon forest creatures to assist in combat.",
+            "wind and plant magic": "Larken controls the forces of wind and plant magic, enhancing the player's attacks or slowing down enemies."
+        },
+        "role": "Larken will guide the player and assist in the fight against Boss #3 using her knowledge of the wild and her ability to control nature."
         }
     }
 }
@@ -347,4 +434,3 @@ def rock_paper_scissors(location):
                 scroll_text("Error: No valid location found after win. Returning to start.")
                 return "start"
 play_game()
-
